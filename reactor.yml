@@ -14,11 +14,11 @@ domain:
 #   docker_tag: docker_build_tag
 #
 docker:
-    # zimagi:
-    #     remote: https://github.com/zimagi/zimagi.git
-    #     reference: reactor
-    #     docker_dir: docker
-    #     docker_tag: dev
+    zimagi:
+        remote: https://github.com/zimagi/zimagi.git
+        reference: reactor
+        docker_dir: docker
+        docker_tag: dev
 
     knowledge_admin:
         remote: https://github.com/cellebris/knowledge-admin.git
@@ -47,10 +47,10 @@ docker:
 #   chart_dir: relative_path/to/chart
 #
 charts:
-    # zimagi:
-    #     remote: https://github.com/zimagi/charts.git
-    #     reference: main
-    #     chart_dir: charts/zimagi
+    zimagi:
+        remote: https://github.com/zimagi/charts.git
+        reference: main
+        chart_dir: charts/zimagi
 
     cellebris:
         remote: https://github.com/cellebris/charts.git
