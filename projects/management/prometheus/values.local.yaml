@@ -1,0 +1,83 @@
+volumeClaimTemplate:
+    spec:
+        storageClassName: standard
+        accessModes: ["ReadWriteOnce"]
+        resources:
+            requests:
+                storage: 10Gi
+
+alertmanager:
+    alertmanagerSpec:
+        resources:
+            requests:
+                cpu: "100m"
+                memory: "128Mi"
+            limits:
+                cpu: "150m"
+                memory: "192Mi"
+
+prometheusOperator:
+    resources:
+        requests:
+            cpu: "100m"
+            memory: "128Mi"
+        limits:
+            cpu: "150m"
+            memory: "192Mi"
+
+prometheus:
+    prometheusSpec:
+        serviceMonitorSelectorNilUsesHelmValues: false
+        podMonitorSelectorNilUsesHelmValues: false
+        probeSelectorNilUsesHelmValues: false
+        ruleSelectorNilUsesHelmValues: false
+
+    resources:
+        requests:
+            cpu: "500m"
+            memory: "1024Mi"
+        limits:
+            cpu: "750m"
+            memory: "1536Mi"
+
+grafana:
+    enabled: true
+
+    forceDeployDatasources: true
+    forceDeployDashboards: true
+
+    admin:
+        existingSecret: "grafana-password"
+        userKey: admin-user
+        passwordKey: admin-password
+
+    resources:
+        limits:
+            cpu: 128m
+            memory: 128Mi
+        requests:
+            cpu: 64m
+            memory: 64Mi
+
+    grafana.ini:
+        auth:
+            disable_login_form: false
+        auth.basic:
+            enabled: true
+        users:
+            auto_assign_org_role: Admin
+        server:
+            domain: "monitor.${PRIMARY_DOMAIN}"
+            root_url: "https://monitor.${PRIMARY_DOMAIN}"
+    ingress:
+        enabled: true
+        hosts:
+            - "monitor.${PRIMARY_DOMAIN}"
+        path: "/"
+        ingressclassName: nginx
+        tls:
+            - secretName: origin-cert
+              hosts:
+                  - "monitor.${PRIMARY_DOMAIN}"
+        annotations:
+            kubernetes.io/ingress.class: nginx

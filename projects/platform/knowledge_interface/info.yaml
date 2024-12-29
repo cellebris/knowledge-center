@@ -1,0 +1,9 @@
+enabled: ["production"]
+
+name: knowledge-interface
+repository: https://charts.cellebris.com
+chart: knowledge-interface
+version: 0.1.0
+
+labels:
+    reloader-enabled: "true"

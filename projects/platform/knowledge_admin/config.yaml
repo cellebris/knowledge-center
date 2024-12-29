@@ -1,0 +1,33 @@
+global:
+    data:
+        DOMAIN_NAME: "${PRIMARY_DOMAIN}"
+        BASE_UI_URL: "https://admin.${PRIMARY_DOMAIN}"
+        BASE_API_URL: "https://api.admin.${PRIMARY_DOMAIN}"
+
+        DJANGO_SUPERUSER_EMAIL: "${KNOWLEDGE_ADMIN_SUPERUSER_EMAIL}"
+        DJANGO_SUPERUSER_FIRST_NAME: "${KNOWLEDGE_ADMIN_SUPERUSER_FIRST_NAME}"
+        DJANGO_SUPERUSER_LAST_NAME: "${KNOWLEDGE_ADMIN_SUPERUSER_LAST_NAME}"
+
+        CONN_MAX_AGE: 100
+
+        MAILGUN_DOMAIN: "${MAILGUN_DOMAIN}"
+        MAILGUN_API_URL: "https://api.mailgun.net/v3"
+
+        DJANGO_DEFAULT_FROM_EMAIL: "${KNOWLEDGE_ADMIN_FROM_EMAIL}"
+        CONTACT_NOTIFICATION_EMAIL: "${KNOWLEDGE_ADMIN_CONTACT_EMAIL}"
+
+ui:
+    data:
+        DJANGO_ADMIN_PATH: "admin/"
+
+api:
+    data: {}
+
+scheduler:
+    data: {}
+
+worker:
+    data: {}
+
+flower:
+    data: {}

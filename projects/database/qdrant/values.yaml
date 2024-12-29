@@ -1,0 +1,46 @@
+replicaCount: 1
+
+image:
+    tag: "v1.12.4"
+
+env:
+    - name: QDRANT__SERVICE__API_KEY
+      valueFrom:
+          secretKeyRef:
+              name: access-info
+              key: QDRANT__SERVICE__API_KEY
+    - name: QDRANT__LOG_LEVEL
+      value: "${QDRANT_LOG_LEVEL}"
+    - name: QDRANT__SERVICE__MAX_REQUEST_SIZE_MB
+      value: "${QDRANT_MAX_REQUEST_SIZE_MB}"
+
+ingress:
+    enabled: true
+    ingressClassName: nginx
+    hosts:
+        - host: "qdrant.${PRIMARY_DOMAIN}"
+          paths:
+              - path: /
+                pathType: Prefix
+                servicePort: 6333
+    tls:
+        - hosts:
+              - "qdrant.${PRIMARY_DOMAIN}"
+          secretName: origin-cert
+
+resources:
+    limits:
+        cpu: 250m
+        memory: 1Gi
+    requests:
+        cpu: 250m
+        memory: 515Mi
+
+persistence:
+    size: 10Gi
+    storageClassName: standard
+
+snapshotPersistence:
+    enabled: true
+    size: 10Gi
+    storageClassName: standard

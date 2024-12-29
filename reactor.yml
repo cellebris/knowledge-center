@@ -1,0 +1,78 @@
+name: "Publisher"
+short_name: "publisher"
+domain:
+    local: publisher.local
+    production: help.cellebris.com
+#
+# Docker image projects (map of images)
+#
+# {image_name}:
+#   project: relative_directory to docker directory (defaults to key)
+#   remote: (https://|git@)example.com(/|:)project.git
+#   reference: (branch|tag)
+#   docker_dir: relative_path/to/dockerfile
+#   docker_tag: docker_build_tag
+#
+docker:
+    # zimagi:
+    #     remote: https://github.com/zimagi/zimagi.git
+    #     reference: reactor
+    #     docker_dir: docker
+    #     docker_tag: dev
+
+    knowledge_admin:
+        remote: https://github.com/cellebris/knowledge-admin.git
+        reference: main
+        docker_dir: docker/local/django
+        docker_tag: dev
+
+    knowledge_admin_gateway:
+        project: knowledge_admin
+        docker_dir: docker/local/node
+        docker_tag: dev
+
+    knowledge_interface:
+        remote: https://github.com/cellebris/knowledge-interface.git
+        reference: main
+        docker_dir: docker/local/node
+        docker_tag: dev
+#
+# Helm chart projects (map of charts)
+#
+# {chart_name}:
+#   project: relative_directory to charts directory (defaults to key)
+#   app: argocd_app_name (name field in info.yml)
+#   remote: (https://|git@)example.com(/|:)project.git
+#   reference: (branch|tag)
+#   chart_dir: relative_path/to/chart
+#
+charts:
+    # zimagi:
+    #     remote: https://github.com/zimagi/charts.git
+    #     reference: main
+    #     chart_dir: charts/zimagi
+
+    cellebris:
+        remote: https://github.com/cellebris/charts.git
+        reference: main
+
+    knowledge_admin:
+        project: cellebris
+        app: knowledge-admin
+        chart_dir: charts/knowledge-admin
+
+    knowledge_interface:
+        project: cellebris
+        app: knowledge-interface
+        chart_dir: charts/knowledge-interface
+#
+# Reactor extension projects (map of extensions)
+#
+# ** Add reactor commands and utilities
+# ** Should contain a 'reactor' top level directory
+#
+# {extension_name}:
+#   remote: (https://|git@)example.com(/|:)project.git
+#   reference: (branch|tag)
+#
+extensions: {}

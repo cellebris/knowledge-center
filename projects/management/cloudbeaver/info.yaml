@@ -1,0 +1,4 @@
+enabled: ["all"]
+
+name: cloudbeaver
+chart: application

@@ -1,0 +1,4 @@
+enabled: ["all"]
+
+name: redisinsight
+chart: application

@@ -1,0 +1,34 @@
+replicaCount: 1
+
+service:
+    type: LoadBalancer
+
+    ports:
+        https: 443
+
+    nodePorts:
+        https: ${GATEWAY_NODE_PORT}
+
+    targetPort:
+        http: http
+
+ingressClassResource:
+    name: nginx
+    controllerClass: "k8s.io/ingress-nginx-ui"
+
+resources:
+    requests:
+        cpu: "100m"
+        memory: "128Mi"
+    limits:
+        cpu: "150m"
+        memory: "192Mi"
+
+defaultBackend:
+    resources:
+        requests:
+            cpu: "100m"
+            memory: "128Mi"
+        limits:
+            cpu: "150m"
+            memory: "192Mi"

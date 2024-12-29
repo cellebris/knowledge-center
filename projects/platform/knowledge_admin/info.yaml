@@ -1,0 +1,9 @@
+enabled: ["all"]
+
+name: knowledge-admin
+repository: "https://charts.cellebris.com"
+chart: knowledge-admin
+version: 0.1.2
+
+labels:
+    reloader-enabled: "true"

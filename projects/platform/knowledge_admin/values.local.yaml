@@ -1,0 +1,161 @@
+postgresql:
+    primary:
+        resources:
+            requests:
+                cpu: 250m
+                memory: 512Mi
+            limits:
+                cpu: 1
+                memory: 1024Mi
+        persistence:
+            existingClaim: postgresql
+
+redis:
+    fullnameOverride: redis
+    master:
+        resources:
+            requests:
+                cpu: 250m
+                memory: 512Mi
+            limits:
+                cpu: 1
+                memory: 1024Mi
+        persistence:
+            existingClaim: redis
+
+image:
+    pullPolicy: Never
+    repository: ""
+    image: knowledge_admin
+    tag: dev
+
+pvc:
+    claims:
+        private-media: null
+        public-media: null
+        postgresql:
+            storageClass: standard
+            accessMode: ReadWriteOnce
+            size: 10Gi
+        redis:
+            storageClass: standard
+            accessMode: ReadWriteOnce
+            size: 10Gi
+
+volumes:
+    host:
+        /app:
+            name: app-source
+            path: "${__knowledge_admin_project_dir}"
+
+deployment:
+    env:
+        DJANGO_DEBUG: true
+
+services:
+    node:
+        image:
+            pullPolicy: Never
+            repository: ""
+            image: knowledge_admin_gateway
+            tag: dev
+
+        deployment:
+            port: 3000
+            resources:
+                requests:
+                    cpu: "50m"
+                    memory: "256Mi"
+            env:
+                APP_SERVER_HOST: "ui:80"
+
+        service:
+            enabled: true
+
+        ingress:
+            enabled: true
+            className: nginx
+            hosts:
+                - host: "admin.${PRIMARY_DOMAIN}"
+            tls:
+                - secretName: origin-cert
+
+        annotations:
+            configmap.reloader.stakater.com/reload: global,ui
+            secret.reloader.stakater.com/reload: global
+
+    ui:
+        pvc: null
+
+        deployment:
+            resources:
+                requests:
+                    cpu: "50m"
+                    memory: "1Gi"
+
+        ingress:
+            enabled: false
+
+        annotations:
+            configmap.reloader.stakater.com/reload: global,ui
+            secret.reloader.stakater.com/reload: global
+
+    api:
+        pvc: null
+
+        deployment:
+            resources:
+                requests:
+                    cpu: "50m"
+                    memory: "1Gi"
+
+        ingress:
+            enabled: true
+            className: nginx
+            hosts:
+                - host: "api.admin.${PRIMARY_DOMAIN}"
+            tls:
+                - secretName: origin-cert
+
+        annotations:
+            configmap.reloader.stakater.com/reload: global,api
+            secret.reloader.stakater.com/reload: global
+
+    scheduler:
+        deployment:
+            resources:
+                requests:
+                    cpu: "50m"
+                    memory: "100Mi"
+
+        annotations:
+            configmap.reloader.stakater.com/reload: global,scheduler
+            secret.reloader.stakater.com/reload: global
+
+    worker:
+        pvc: null
+
+        deployment:
+            resources:
+                requests:
+                    cpu: "50m"
+                    memory: "1Gi"
+
+        annotations:
+            configmap.reloader.stakater.com/reload: global,worker
+            secret.reloader.stakater.com/reload: global
+
+    tasks:
+        deployment:
+            resources:
+                requests:
+                    cpu: "50m"
+                    memory: "250Mi"
+
+        ingress:
+            enabled: true
+            className: nginx
+            hosts:
+                - host: "admin-tasks.${OPERATIONS_DOMAIN}"
+            tls:
+                - secretName: origin-cert

@@ -1,0 +1,8 @@
+global:
+    data:
+        NODE_ENV: "${__environment}"
+
+        SESSION_COOKIE_NAME: "cellebris.session"
+
+        QDRANT_COLLECTION: "web_component"
+        QDRANT_MIN_SCORE: "0.3"
