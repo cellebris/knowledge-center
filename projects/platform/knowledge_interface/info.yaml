@@ -1,4 +1,4 @@
-enabled: ["production"]
+enabled: ["all"]
 
 name: knowledge-interface
 repository: https://charts.cellebris.com
