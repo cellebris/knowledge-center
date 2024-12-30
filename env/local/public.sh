@@ -25,17 +25,6 @@ export QDRANT_LOG_LEVEL="INFO"
 export QDRANT_MAX_REQUEST_SIZE_MB="1000"
 
 #
-# Zimagi environment variables
-#
-export ZIMAGI_TAG="0.14.0"
-export ZIMAGI_GITHUB_ORG="fractalsynapse"
-
-export ZIMAGI_EMAIL_HOST_DOMAIN="smtp.gmail.com"
-export ZIMAGI_EMAIL_HOST_PORT=465
-
-export MAILGUN_DOMAIN="nexical.email"
-
-#
 # Knowledge Interface environment variables
 #
 export KNOWLEDGE_INTERFACE_TAG="0.2.0"
@@ -44,3 +33,8 @@ export KNOWLEDGE_INTERFACE_TAG="0.2.0"
 # Knowledge Manager environment variables
 #
 export KNOWLEDGE_ADMIN_TAG="0.2.0"
+
+#
+# Zimagi environment variables
+#
+export ZIMAGI_TAG="0.14.0"
