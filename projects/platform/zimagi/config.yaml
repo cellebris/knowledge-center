@@ -24,7 +24,7 @@ global:
         ZIMAGI_EMAIL_HOST: "${ZIMAGI_EMAIL_HOST_DOMAIN}"
         ZIMAGI_EMAIL_PORT: "${ZIMAGI_EMAIL_HOST_PORT}"
         ZIMAGI_EMAIL_USE_TLS: true
-        ZIMAGI_EMAIL_SUBJECT_PREFIX: "[Publisher]> "
+        ZIMAGI_EMAIL_SUBJECT_PREFIX: "[${APP_NAME}]> "
 
         ZIMAGI_LIB_PVC: ""
         ZIMAGI_HOST_APP_DIR: "${__zimagi_app_dir}"
