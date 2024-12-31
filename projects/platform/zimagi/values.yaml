@@ -30,7 +30,7 @@ image:
     pullPolicy: IfNotPresent
     repository: "docker.io"
     image: zimagi/zimagi
-    tag: "${ZIMAGI_TAG}"
+    tag: "${ZIMAGI_PROD_TAG}"
 
 pvc:
     claims:
@@ -61,6 +61,10 @@ deployment:
         POSTGRES_USER: "{{ .Values.postgresql.auth.username }}"
         REDIS_HOST: "{{ .Values.redis.fullnameOverride }}-master"
         REDIS_PORT: 6379
+
+        ZIMAGI_QDRANT_HOST: qdrant.qdrant
+        ZIMAGI_QDRANT_PORT: 6333
+        ZIMAGI_QDRANT_HTTPS: false
 
 services:
     command-api:

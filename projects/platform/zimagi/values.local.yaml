@@ -39,7 +39,14 @@ deployment:
     replicaCount: 1
 
     env:
+        ZIMAGI_DEBUG: true
+        ZIMAGI_DEBUG_COMMAND_PROFILES: true
+
         ZIMAGI_DEFAULT_RUNTIME_IMAGE: "{{ .Values.image.image }}:{{ .Values.image.tag }}"
+
+        ZIMAGI_QDRANT_HOST: qdrant.qdrant
+        ZIMAGI_QDRANT_PORT: 6333
+        ZIMAGI_QDRANT_HTTPS: false
 
 ingress:
     className: nginx
@@ -56,7 +63,7 @@ services:
         ingress:
             enabled: true
             hosts:
-                - host: "zimagi-cmd.${PRIMARY_DOMAIN}"
+                - host: "cmd.${PRIMARY_DOMAIN}"
 
     data-api:
         annotations:
@@ -67,7 +74,7 @@ services:
         ingress:
             enabled: true
             hosts:
-                - host: "zimagi-api.${PRIMARY_DOMAIN}"
+                - host: "data.${PRIMARY_DOMAIN}"
 
     scheduler:
         annotations:
