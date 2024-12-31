@@ -9,8 +9,8 @@ export ZIMAGI_APP_NAME="$APP_NAME"
 
 export ZIMAGI_DEFAULT_MODULES="[
   {
-    \"provider\": \"github\",
-    \"remote\": \"fractalsynapse/nexical-core-engine\",
+    \"provider\": \"git\",
+    \"remote\": \"https://github.com/cellebris/zimagi-publisher.git\",
     \"reference\": \"main\"
   }
 ]"
