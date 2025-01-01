@@ -32,11 +32,15 @@ export KNOWLEDGE_INTERFACE_TAG="0.2.0"
 #
 # Knowledge Manager environment variables
 #
+export ADMIN_SUBDOMAIN="admin"
+
 export KNOWLEDGE_ADMIN_TAG="0.2.0"
 
 #
 # Zimagi environment variables
 #
+export ZIMAGI_SUBDOMAIN="zimagi"
+
 export ZIMAGI_DOCKER_TAG="dev"
 export ZIMAGI_BASE_IMAGE="zimagi"
 export ZIMAGI_PROD_TAG="0.14.0"

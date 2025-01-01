@@ -76,7 +76,7 @@ services:
             enabled: true
             className: nginx
             hosts:
-                - host: "admin.${PRIMARY_DOMAIN}"
+                - host: "${ADMIN_DOMAIN}"
             tls:
                 - secretName: origin-cert
 
@@ -113,7 +113,7 @@ services:
             enabled: true
             className: nginx
             hosts:
-                - host: "api.admin.${PRIMARY_DOMAIN}"
+                - host: "api.${ADMIN_DOMAIN}"
             tls:
                 - secretName: origin-cert
 

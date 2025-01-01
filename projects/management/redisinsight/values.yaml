@@ -50,4 +50,4 @@ services:
         ingress:
             enabled: true
             hosts:
-                - host: "redis.${PRIMARY_DOMAIN}"
+                - host: "redis.${OPERATIONS_DOMAIN}"

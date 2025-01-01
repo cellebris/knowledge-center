@@ -63,7 +63,7 @@ services:
         ingress:
             enabled: true
             hosts:
-                - host: "cmd.${PRIMARY_DOMAIN}"
+                - host: "cmd.${ZIMAGI_DOMAIN}"
 
     data-api:
         annotations:
@@ -74,7 +74,7 @@ services:
         ingress:
             enabled: true
             hosts:
-                - host: "data.${PRIMARY_DOMAIN}"
+                - host: "data.${ZIMAGI_DOMAIN}"
 
     scheduler:
         annotations:
@@ -94,4 +94,4 @@ services:
         ingress:
             enabled: true
             hosts:
-                - host: "zimagi-tasks.${OPERATIONS_DOMAIN}"
+                - host: "tasks.${ZIMAGI_DOMAIN}"

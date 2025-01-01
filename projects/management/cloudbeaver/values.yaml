@@ -38,4 +38,4 @@ services:
         ingress:
             enabled: true
             hosts:
-                - host: "db.${PRIMARY_DOMAIN}"
+                - host: "db.${OPERATIONS_DOMAIN}"

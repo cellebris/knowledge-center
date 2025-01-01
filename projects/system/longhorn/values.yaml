@@ -21,7 +21,7 @@ preUpgradeChecker:
 ingress:
     enabled: true
     ingressClassName: nginx
-    host: "longhorn.${PRIMARY_DOMAIN}"
+    host: "longhorn.${OPERATIONS_DOMAIN}"
     tls: true
     tlsSecret: origin-cert
 

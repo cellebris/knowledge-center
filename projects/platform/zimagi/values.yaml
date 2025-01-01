@@ -90,7 +90,7 @@ services:
             enabled: true
             className: nginx-ui
             hosts:
-                - host: "cmd.${PRIMARY_DOMAIN}"
+                - host: "cmd.${ZIMAGI_DOMAIN}"
             tls:
                 - secretName: command-cert
 
@@ -117,7 +117,7 @@ services:
             enabled: true
             className: nginx-ui
             hosts:
-                - host: "data.${PRIMARY_DOMAIN}"
+                - host: "data.${ZIMAGI_DOMAIN}"
             tls:
                 - secretName: data-cert
 
@@ -163,7 +163,7 @@ services:
             enabled: true
             className: nginx-ui
             hosts:
-                - host: "zimagi-tasks.${OPERATIONS_DOMAIN}"
+                - host: "tasks.${ZIMAGI_DOMAIN}"
             tls:
                 - secretName: tasks-cert
 

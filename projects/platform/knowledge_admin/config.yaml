@@ -1,8 +1,8 @@
 global:
     data:
         DOMAIN_NAME: "${PRIMARY_DOMAIN}"
-        BASE_UI_URL: "https://admin.${PRIMARY_DOMAIN}"
-        BASE_API_URL: "https://api.admin.${PRIMARY_DOMAIN}"
+        BASE_UI_URL: "https://${ADMIN_DOMAIN}"
+        BASE_API_URL: "https://api.${ADMIN_DOMAIN}"
 
         DJANGO_SUPERUSER_EMAIL: "${KNOWLEDGE_ADMIN_SUPERUSER_EMAIL}"
         DJANGO_SUPERUSER_FIRST_NAME: "${KNOWLEDGE_ADMIN_SUPERUSER_FIRST_NAME}"

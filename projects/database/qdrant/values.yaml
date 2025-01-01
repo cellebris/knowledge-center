@@ -18,14 +18,14 @@ ingress:
     enabled: true
     ingressClassName: nginx
     hosts:
-        - host: "qdrant.${PRIMARY_DOMAIN}"
+        - host: "qdrant.${OPERATIONS_DOMAIN}"
           paths:
               - path: /
                 pathType: Prefix
                 servicePort: 6333
     tls:
         - hosts:
-              - "qdrant.${PRIMARY_DOMAIN}"
+              - "qdrant.${OPERATIONS_DOMAIN}"
           secretName: origin-cert
 
 resources:

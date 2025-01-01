@@ -2,6 +2,8 @@
 #=========================================================================================
 # Initialization
 #
+export ADMIN_DOMAIN="${ADMIN_SUBDOMAIN}.${PRIMARY_DOMAIN}"
+export ZIMAGI_DOMAIN="${ZIMAGI_SUBDOMAIN}.${PRIMARY_DOMAIN}"
 export OPERATIONS_DOMAIN="${OPERATIONS_SUBDOMAIN}.${PRIMARY_DOMAIN}"
 export AUTH_DOMAIN="${AUTH_SUBDOMAIN}.${PRIMARY_DOMAIN}"
 
@@ -22,7 +24,7 @@ export ZIMAGI_SUMMARIZER_PROVIDERS='["mixtral_di_7bx8"]'
 export ZIMAGI_DEFAULT_PORTAL="interface"
 export ZIMAGI_PORTALS='{
   "interface": {
-    "host": "https://api.admin.'${PRIMARY_DOMAIN}'",
+    "host": "https://api.'${ADMIN_DOMAIN}'",
     "token": "'${KNOWLEDGE_ADMIN_SUPERUSER_API_KEY}'"
   }
 }'

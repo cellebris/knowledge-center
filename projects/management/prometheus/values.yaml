@@ -165,18 +165,18 @@ grafana:
         users:
             auto_assign_org_role: Admin
         server:
-            domain: "monitor.${PRIMARY_DOMAIN}"
-            root_url: "https://monitor.${PRIMARY_DOMAIN}"
+            domain: "monitor.${OPERATIONS_DOMAIN}"
+            root_url: "https://monitor.${OPERATIONS_DOMAIN}"
     ingress:
         enabled: true
         hosts:
-            - "monitor.${PRIMARY_DOMAIN}"
+            - "monitor.${OPERATIONS_DOMAIN}"
         path: "/"
         ingressclassName: nginx
         tls:
             - secretName: origin-cert
               hosts:
-                  - "monitor.${PRIMARY_DOMAIN}"
+                  - "monitor.${OPERATIONS_DOMAIN}"
         annotations:
             kubernetes.io/ingress.class: nginx
     extraVolumeMounts: []

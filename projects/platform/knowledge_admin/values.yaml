@@ -71,7 +71,7 @@ services:
             enabled: true
             className: nginx-ui
             hosts:
-                - host: "admin.${PRIMARY_DOMAIN}"
+                - host: "${ADMIN_DOMAIN}"
             tls:
                 - secretName: ui-cert
 
@@ -94,7 +94,7 @@ services:
             enabled: true
             className: nginx-api
             hosts:
-                - host: "api.${PRIMARY_DOMAIN}"
+                - host: "api.${ADMIN_DOMAIN}"
             tls:
                 - secretName: api-cert
 
@@ -145,7 +145,7 @@ services:
             enabled: true
             className: nginx-ui
             hosts:
-                - host: "admin-tasks.${PRIMARY_DOMAIN}"
+                - host: "admin-tasks.${OPERATIONS_DOMAIN}"
             tls:
                 - secretName: tasks-cert
 
