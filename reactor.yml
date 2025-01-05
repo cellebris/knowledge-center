@@ -20,6 +20,12 @@ docker:
         docker_dir: docker
         docker_tag: dev
 
+    command:
+        remote: https://github.com/zimagi/command.git
+        reference: main
+        docker_dir: .
+        docker_tag: dev
+
     knowledge_admin:
         remote: https://github.com/cellebris/knowledge-admin.git
         reference: main
