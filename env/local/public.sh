@@ -56,7 +56,7 @@ export ZIMAGI_LOG_LEVEL="warning"
 export ZIMAGI_RESTART_SERVICES="true"
 export ZIMAGI_QUEUE_COMMANDS="true"
 
-export ZIMAGI_AUTO_UPDATE="true"
+export ZIMAGI_AUTO_UPDATE="false"
 
 export ZIMAGI_SERVER_TIMEOUT="0"
 export ZIMAGI_SERVER_WORKERS="3"
