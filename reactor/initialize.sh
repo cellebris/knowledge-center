@@ -25,7 +25,7 @@ export ZIMAGI_SUMMARIZER_PROVIDERS='["mixtral_di_7bx8"]'
 export ZIMAGI_DEFAULT_PORTAL="interface"
 export ZIMAGI_PORTALS='{
   "interface": {
-    "host": "https://api.'${ADMIN_DOMAIN}'",
+    "host": "http://api.knowledge-admin:80",
     "token": "'${KNOWLEDGE_ADMIN_SUPERUSER_API_KEY}'"
   }
 }'
