@@ -1,3 +1,0 @@
-#
-# Python packages installed into the reactor docker image on reactor-build
-#
