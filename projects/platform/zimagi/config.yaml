@@ -77,4 +77,5 @@ worker:
         ZIMAGI_DISABLE_MODULE_SYNC: true
 
 flower:
-    data: {}
+    data:
+        FLOWER_UNAUTHENTICATED_API: true
