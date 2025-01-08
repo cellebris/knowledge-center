@@ -62,10 +62,6 @@ deployment:
         REDIS_HOST: "{{ .Values.redis.fullnameOverride }}-master"
         REDIS_PORT: 6379
 
-        ZIMAGI_QDRANT_HOST: qdrant.qdrant
-        ZIMAGI_QDRANT_PORT: 6333
-        ZIMAGI_QDRANT_HTTPS: false
-
 services:
     command-api:
         deployment:

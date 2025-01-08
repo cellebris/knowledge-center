@@ -46,10 +46,6 @@ deployment:
 
         ZIMAGI_DEFAULT_RUNTIME_IMAGE: "{{ .Values.image.image }}:{{ .Values.image.tag }}"
 
-        ZIMAGI_QDRANT_HOST: qdrant.qdrant
-        ZIMAGI_QDRANT_PORT: 6333
-        ZIMAGI_QDRANT_HTTPS: false
-
 ingress:
     className: nginx
     tls:
