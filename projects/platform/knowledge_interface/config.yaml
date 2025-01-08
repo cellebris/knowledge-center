@@ -2,7 +2,14 @@ global:
     data:
         NODE_ENV: "${__environment}"
 
-        SESSION_COOKIE_NAME: "cellebris.session"
+        SESSION_COOKIE_NAME: cellebris.session
 
-        QDRANT_COLLECTION: "web_component"
-        QDRANT_MIN_SCORE: "0.3"
+        KNOWLEDGE_ADMIN_HOSTNAME: api.knowledge-admin
+        KNOWLEDGE_ADMIN_PORT: 80
+        KNOWLEDGE_ADMIN_PROTOCOL: http
+
+        QDRANT_HOST: qdrant.qdrant
+        QDRANT_PORT: 6333
+        QDRANT_HTTPS: false
+        QDRANT_COLLECTION: web_component
+        QDRANT_MIN_SCORE: 0.3

@@ -11,15 +11,6 @@ volumes:
             path: "${__knowledge_interface_project_dir}"
 
 deployment:
-    env:
-        KNOWLEDGE_ADMIN_PROTOCOL: http
-        KNOWLEDGE_ADMIN_HOSTNAME: api.knowledge-admin
-        KNOWLEDGE_ADMIN_PORT: 8080
-
-        QDRANT_HTTPS: false
-        QDRANT_HOSTNAME: "qdrant.qdrant"
-        QDRANT_PORT: 6333
-
     port: 4321
 
     livenessProbe:
