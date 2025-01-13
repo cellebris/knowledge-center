@@ -1,7 +1,7 @@
 #
 # Cluster environment variables
 #
-export MINIKUBE_MEMORY="20480"
+export MINIKUBE_MEMORY="40960"
 export GATEWAY_NODE_PORT="32222"
 
 export OPERATIONS_SUBDOMAIN="ops"
@@ -51,8 +51,8 @@ export ZIMAGI_PARALLEL="true"
 export ZIMAGI_THREAD_COUNT="5"
 export ZIMAGI_MUTEX_TTL_SECONDS="60"
 
-export ZIMAGI_DEBUG="false"
-export ZIMAGI_DEBUG_COMMAND_PROFILES="false"
+export ZIMAGI_DEBUG="true"
+export ZIMAGI_DEBUG_COMMAND_PROFILES="true"
 export ZIMAGI_LOG_LEVEL="warning"
 export ZIMAGI_RESTART_SERVICES="true"
 export ZIMAGI_QUEUE_COMMANDS="true"
