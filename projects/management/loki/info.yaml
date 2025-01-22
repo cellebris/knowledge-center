@@ -1,4 +1,4 @@
-enabled: ["production"]
+enabled: ["all"]
 
 name: loki
 repository: "https://grafana.github.io/helm-charts"
