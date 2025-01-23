@@ -1,7 +1,7 @@
 #
 # Cluster environment variables
 #
-export MINIKUBE_MEMORY="10240"
+export MINIKUBE_MEMORY="16384"
 export GATEWAY_NODE_PORT="32222"
 
 export OPERATIONS_SUBDOMAIN="ops"
