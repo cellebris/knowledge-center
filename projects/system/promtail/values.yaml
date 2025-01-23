@@ -43,3 +43,10 @@ resources:
     requests:
         cpu: 100m
         memory: 128Mi
+initContainers:
+- command:
+  - sh
+  - -c
+  - sysctl -w fs.inotify.max_user_instances=1024
+  image: busybox
+  name: sysctl
